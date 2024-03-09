@@ -4,6 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { UserSignupService } from '../../services/user-signup.service';
 import { FormsModule } from '@angular/forms';
 import { DataServiceService } from '../../services/data.service.service';
+import Swal from 'sweetalert2';
 // import { Injectable } from '@angular/core';
 
 
@@ -36,7 +37,14 @@ name:any=""
 
 loginUser(data:any){
 this.loginData.logIn(data).subscribe((result)=>{
-  window.alert(result.message)
+  // window.alert(result.message)
+  Swal.fire({
+    // position: "top-end",
+    icon: "success",
+    title: result.message,
+    showConfirmButton: false,
+    timer: 1500
+  });
   this.userService.setUserName(result.name);
   if(result.status==true){
     localStorage.setItem("token",result.token);
