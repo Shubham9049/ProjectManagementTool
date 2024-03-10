@@ -5,7 +5,8 @@ const connection=sql.createConnection({
     user:"root",
     password:"",
     database:"pmt",
-    timezone:"Asia/Kolkata"
+    timezone:"Asia/Kolkata",
+    port:3306
 })
 
 
