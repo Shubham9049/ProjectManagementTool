@@ -37,14 +37,21 @@ name:any=""
 
 loginUser(data:any){
 this.loginData.logIn(data).subscribe((result)=>{
-  // window.alert(result.message)
-  Swal.fire({
-    // position: "top-end",
-    icon: "success",
-    title: result.message,
-    showConfirmButton: false,
-    timer: 1500
-  });
+  if(result.data==="success"){
+    Swal.fire({
+      // position: "top-end",
+      icon: "success",
+      title: result.message,
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }else{
+    Swal.fire({
+      icon:'error',
+      title:result.message
+    });
+  }
+  
   this.userService.setUserName(result.name);
   if(result.status==true){
     localStorage.setItem("token",result.token);
@@ -67,7 +74,7 @@ this.loginData.logIn(data).subscribe((result)=>{
 console.log("Login data is ",data);
 }
 
-clickBtn(){
+clickBtntosignup(){
   this.router.navigate(['signup'])
   }
 

@@ -33,10 +33,9 @@ export class UserDashboardComponent implements OnInit{
       this.user_task.UserTaskDetails().subscribe((res:any[])=>{
         if(res){
           const taskIds = res.map(taskData => taskData.task_id);
-          // localStorage.setItem('taskIds', JSON.stringify(taskIds));
           console.log(taskIds)
           }
-        this.tasks=res
+         return this.tasks=res
         
       })
     }
@@ -48,4 +47,7 @@ export class UserDashboardComponent implements OnInit{
     window.alert(result.message)
    })
   }
+  clickBtn(data:any){
+    this.router.navigate([`${data}`])
+    }
 }

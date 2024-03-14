@@ -34,6 +34,8 @@ export class AdminDashboardComponent implements OnInit  {
     console.log(this.data)
    }
 }
+
+
 name:any
 capturedId: any;
 captureUserId(userId: any) {
@@ -58,7 +60,9 @@ this.getuser.task(data).subscribe((result)=>{
   alert(result+'Assigned Successfully')
 })
 }
-
+clickBtn(data:any){
+  this.router.navigate([`${data}`])
+  }
 
 
 

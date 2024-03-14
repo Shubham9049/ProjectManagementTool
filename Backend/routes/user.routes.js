@@ -19,16 +19,16 @@ userRoute.get("/signup",verify,(req,res)=>{
 
 // this is signup part
 userRoute.post("/signup", (req,res)=>{
-    const {name,email,role,password}= req.body;
+    const {name,email,password}= req.body;
    const hasedPass=bcrypt.hashSync(password,5)
-    const userRole = role || 'employee';
+    // const userRole = role || 'employee';
    
      connection.query('SELECT COUNT(*) AS count FROM data1 WHERE email=?',[email],(err,result)=>{
         if(result[0].count>0){
             res.status(200).json({message:"email Already exist"})
         }else{
-             const  query='INSERT INTO data1 (name, email, role, password) VALUES (?, ?, ?, ?)'
-       connection.query(query,[name,email,userRole,hasedPass], (err, result)=>{
+             const  query='INSERT INTO data1 (name, email,password) VALUES (?, ?, ?)'
+       connection.query(query,[name,email,hasedPass], (err, result)=>{
        console.log(query)
         if(!err){
            
@@ -57,6 +57,7 @@ userRoute.post("/login",(req,res)=>{
                 res.status(200).send({
                     message:`welcome ${result[0].name}`,
                     status:true,
+                    data:"success",
                     user_id:result[0].id,
                     name:result[0].name,
                     role:result[0].role,

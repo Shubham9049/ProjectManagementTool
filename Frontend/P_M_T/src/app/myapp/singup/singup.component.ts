@@ -40,7 +40,7 @@ this.userdata.signup(data).subscribe((result)=>{
 })
 
 }
-clickBtn(){
+clickBtntologin(){
   this.router.navigate(['login'])
   }
   

@@ -1,0 +1,8 @@
+.text-center{
+  
+    border-radius: 10px 100px / 120px;
+    padding: 5px 5px;
+    background-color: rgb(107, 245, 155);
+    opacity: 2;
+    box-shadow:15px 15px 5px grey ;
+}

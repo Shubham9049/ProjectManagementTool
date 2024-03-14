@@ -11,6 +11,7 @@ import{TeamComponent}from "../myapp/team/team.component"
 import { HttpClientModule } from '@angular/common/http';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -30,7 +31,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     TeamComponent,
     HttpClientModule,
     UserDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ContactComponent
   ],
   exports:[NavbarComponent,
     DashboardComponent,
@@ -41,7 +43,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     TeamComponent,
     HttpClientModule,
     UserDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ContactComponent
   ]
 })
 export class MyappModule { }

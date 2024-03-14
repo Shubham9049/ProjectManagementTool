@@ -1,12 +1,13 @@
 const sql=require("mysql")
+require("dotenv").config()
 
 const connection=sql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"",
-    database:"pmt",
+    host:process.env.HOST,
+    user:process.env.USER,
+    password:process.env.PASSWORD,
+    database:process.env.DATABASE,
     timezone:"Asia/Kolkata",
-    port:3306
+    port:process.env.PORT
 })
 
 
@@ -18,5 +19,6 @@ connection.connect((err)=>{
         console.log("Connected to the Database!")
     }
 })
+
 
 module.exports={connection};
